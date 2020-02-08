@@ -2,8 +2,8 @@
 
 // For use by Diamond Applications
 
-#include <stdio.h>
 #include "Diamond/Application.h"
+#include "Diamond/Log.h"
 
 // ------- Entry Point --------
 #include "Diamond/EntryPoint.h"
