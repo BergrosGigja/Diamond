@@ -1,5 +1,8 @@
 #include "Application.h"
 
+#include "Events/ApplicationEvent.h"
+#include "log.h"
+
 namespace Diamond
 {
 	Application::Application() 
@@ -12,6 +15,9 @@ namespace Diamond
 
 	void Application::Run()
 	{
+		WindowResizeEvent e(1200, 720);
+		DI_TRACE(e);
+
 		while (true);
 	}
 
