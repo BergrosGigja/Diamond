@@ -1,9 +1,7 @@
 #pragma once
 
+#include "dipch.h"
 #include "../Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Diamond {
 

@@ -10,4 +10,13 @@
 	#error Diamond only supports Windows
 #endif
 
+#ifdef  DI_CORE_ASSERT
+	#define DI_ASSERT(x, ...) { if(!(x)) { DI_ERROR("Assertion Failed: {0}", __VA_ARGS__);__debugbreak(); } }
+	#define DI_CORE_ASSERT(x, ...) { if(!(x)) { DI_ERROR("Assertion Failed: {0}", __VA_ARGS__);__debugbreak(); } }
+#else
+	#define DI_ASSERT(x, ...)
+	#define DI_CORE_ASSERT(x, ...)
+#endif
+
+
 #define BIT(x) (1 << x)

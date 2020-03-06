@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Diamond {
 
 	class DIAMOND_API MouseMovedEvent : public Event

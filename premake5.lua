@@ -10,6 +10,12 @@ workspace "Diamond"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Diamond/vendor/GLFW/include"
+
+include "Diamond/vendor/GLFW"
+
 project "Diamond"
 	location "Diamond"
 	kind "SharedLib"
@@ -17,6 +23,9 @@ project "Diamond"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "dipch.h"
+	pchsource "Diamond/src/dipch.cpp"
 
 	files
 	{
@@ -27,7 +36,14 @@ project "Diamond"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

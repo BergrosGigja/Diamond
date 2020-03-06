@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Diamond {
 
 	class DIAMOND_API KeyEvent : public Event
