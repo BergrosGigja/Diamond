@@ -1,6 +1,0 @@
-﻿  SandboxApp.cpp
-C:\Diamond\Diamond\src\Diamond\Log.h(18,54): warning C4251: 'Diamond::Log::s_CoreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Diamond::Log'
-C:\Diamond\Diamond\vendor\spdlog\include\spdlog\details\registry.h(33): message : see declaration of 'std::shared_ptr<spdlog::logger>'
-C:\Diamond\Diamond\src\Diamond\Log.h(19,56): warning C4251: 'Diamond::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Diamond::Log'
-C:\Diamond\Diamond\vendor\spdlog\include\spdlog\details\registry.h(33): message : see declaration of 'std::shared_ptr<spdlog::logger>'
-  Sandbox.vcxproj -> C:\Diamond\$bin\Debug-x64\Sandbox\Sandbox.exe
