@@ -1,7 +1,6 @@
 #include "dipch.h"
 #include "Application.h"
 
-#include "Events/ApplicationEvent.h"
 #include "log.h"
 
 namespace Diamond
@@ -21,6 +20,9 @@ namespace Diamond
 
 	void Application::OnEvent(Event& e)
 	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+
 		DI_CORE_INFO("{0}",e);
 	}
 
@@ -30,6 +32,12 @@ namespace Diamond
 		{
 			m_Window->OnUpdate();
 		}
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
 	}
 
 }
