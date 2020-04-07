@@ -3,6 +3,8 @@
 
 #include "log.h"
 
+#include <glad/glad.h>
+
 namespace Diamond
 {
 

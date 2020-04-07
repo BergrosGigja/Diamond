@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Diamond/vendor/GLFW/include"
+IncludeDir["Glad"] = "Diamond/vendor/Glad/include"
 
 include "Diamond/vendor/GLFW"
+include "Diamond/vendor/Glad"
 
 project "Diamond"
 	location "Diamond"
@@ -37,12 +39,14 @@ project "Diamond"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Diamond"
 		defines
 		{
 			"DI_PLATFORM_WINDOWS",
-			"DIAMOND_BUILD_DLL"
+			"DIAMOND_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
