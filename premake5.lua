@@ -1,5 +1,6 @@
 workspace "Diamond"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -16,9 +17,11 @@ IncludeDir["GLFW"] = "Diamond/vendor/GLFW/include"
 IncludeDir["Glad"] = "Diamond/vendor/Glad/include"
 IncludeDir["ImGui"] = "Diamond/vendor/imgui"
 
-include "Diamond/vendor/GLFW"
-include "Diamond/vendor/Glad"
-include "Diamond/vendor/imgui"
+group "Dependencies"
+	include "Diamond/vendor/GLFW"
+	include "Diamond/vendor/Glad"
+	include "Diamond/vendor/imgui"
+group ""
 
 project "Diamond"
 	location "Diamond"
@@ -68,7 +71,7 @@ project "Diamond"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
