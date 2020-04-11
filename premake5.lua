@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Diamond/vendor/GLFW/include"
 IncludeDir["Glad"] = "Diamond/vendor/Glad/include"
 IncludeDir["ImGui"] = "Diamond/vendor/imgui"
+IncludeDir["glm"] = "Diamond/vendor/glm"
 
 group "Dependencies"
 	include "Diamond/vendor/GLFW"
@@ -37,7 +38,9 @@ project "Diamond"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -46,7 +49,8 @@ project "Diamond"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -106,7 +110,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Diamond/vendor/spdlog/include",
-		"Diamond/src"
+		"Diamond/src",
+		"%{IncludeDir.glm}"
 	}
 
 	links
