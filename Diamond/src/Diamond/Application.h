@@ -7,6 +7,8 @@
 #include "Diamond/LayerStack.h"
 #include "Diamond/Events/ApplicationEvent.h"
 
+#include "Diamond/ImGui/ImGuiLayer.h"
+
 namespace Diamond 
 {
 
@@ -29,6 +31,7 @@ namespace Diamond
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
