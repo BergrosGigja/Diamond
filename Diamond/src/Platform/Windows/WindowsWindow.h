@@ -1,8 +1,10 @@
 #pragma once
 
 #include "Diamond/Window.h"
+#include "Diamond/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
+
 
 namespace Diamond
 {
@@ -28,6 +30,7 @@ namespace Diamond
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		// Stored data that might be requested by GLFW event callbacks
 		struct WindowData
