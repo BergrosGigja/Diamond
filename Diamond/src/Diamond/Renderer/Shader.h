@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <glm/glm.hpp>
 
 namespace Diamond {
 
@@ -12,6 +13,8 @@ namespace Diamond {
 
 		void Bind() const;
 		void UnBind() const;
+
+		void UploadUniformVat4(const std::string& name, const glm::mat4& matrix);
 	private:
 		uint32_t m_RendererID;
 	};

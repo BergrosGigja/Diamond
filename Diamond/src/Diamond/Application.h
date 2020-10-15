@@ -12,6 +12,9 @@
 // TEMP
 #include "Diamond/Renderer/Shader.h"
 #include "Diamond/Renderer/Buffer.h"
+#include "Diamond/Renderer/VertexArray.h"
+
+#include "Diamond/Renderer/OrthographicCamera.h"
 
 namespace Diamond 
 {
@@ -39,10 +42,15 @@ namespace Diamond
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 
-		unsigned int m_VertexArray;
-		std::unique_ptr<Shader> m_Shader;
-		std::unique_ptr<VertexBuffer> m_VertexBuffer;
-		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+		std::shared_ptr<VertexBuffer> m_VertexBuffer;
+		std::shared_ptr<IndexBuffer> m_IndexBuffer;
+
+		std::shared_ptr<Shader> m_BlueShader;
+		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};

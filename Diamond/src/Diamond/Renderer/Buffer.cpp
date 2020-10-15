@@ -10,9 +10,9 @@ namespace Diamond {
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::OpenGL:
+			case RendererAPI::API::OpenGL:
 				return new OpenGLVertexBuffer(vertices, size);
-			case RendererAPI::None:
+			case RendererAPI::API::None:
 			default:
 				DI_CORE_TRACE(false, "Unknown RendererAPI!");
 				return nullptr;
@@ -23,9 +23,9 @@ namespace Diamond {
 	{
 		switch (Renderer::GetAPI())
 		{
-			case RendererAPI::OpenGL:
+			case RendererAPI::API::OpenGL:
 				return new OpenGLIndexBuffer(indices, size);
-			case RendererAPI::None:
+			case RendererAPI::API::None:
 			default:
 				DI_CORE_TRACE(false, "Unknown RendererAPI!");
 				return nullptr;
